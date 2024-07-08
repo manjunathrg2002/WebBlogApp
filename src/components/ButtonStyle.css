@@ -1,0 +1,18 @@
+.custom-button {
+  /* Base button styles */
+  background-color: transparent;
+  border: 1px solid #198754; /* Optional: border to match hover color */
+  color: #198754; /* Optional: text color to match hover color */
+  padding: 6px 15px;
+  cursor: pointer;
+  border-radius: .4rem;
+  margin-left: 1rem;
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+
+  /* Hover state styles */
+}
+
+.custom-button:hover {
+  background-color: #198754; /* Background color on hover */
+  color: white; /* Optional: change text color on hover */
+}

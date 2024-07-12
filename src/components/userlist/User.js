@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Card, Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
-// User1 component to display details of a specific user's posts and comments
-const User1 = () => {
-  const userId = 1; // Specify the user ID you want to filter by
+// User component to display details of a specific user's posts and comments
+const User = () => {
+  const { userId } = useParams(); // Get the userId from the URL parameters
   const [posts, setPosts] = useState([]); // State to hold user's posts
   const [comments, setComments] = useState([]); // State to hold comments on user's posts
   const [users, setUsers] = useState([]); // State to hold all users
@@ -16,7 +16,7 @@ const User1 = () => {
       try {
         // Fetch posts of the specific user
         const postsResponse = await axios.get("https://jsonplaceholder.typicode.com/posts");
-        const filteredPosts = postsResponse.data.filter(post => post.userId === userId);
+        const filteredPosts = postsResponse.data.filter(post => post.userId === parseInt(userId));
         setPosts(filteredPosts);
 
         // Fetch comments for each post of the user
@@ -48,7 +48,7 @@ const User1 = () => {
 
   // Function to get username by user ID
   const getUsernameById = (userId) => {
-    const user = users.find((user) => user.id === userId);
+    const user = users.find((user) => user.id === parseInt(userId));
     return user ? user.name : "Unknown";
   };
 
@@ -108,4 +108,4 @@ const User1 = () => {
   );
 };
 
-export default User1;
+export default User;

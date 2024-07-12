@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Card, Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from "react-router-dom";
 
-// Blog1 component to display details of a specific blog post
-const Blog5 = () => {
-  const postId = 5; // Specify the post ID you want to filter by
+// Blog component to display details of a specific blog post
+const Blog = () => {
+  const { postId } = useParams(); // Get the postId from the URL parameters
   const [post, setPost] = useState(null); // State to hold the post data
   const [user, setUser] = useState(null); // State to hold the user data
   const [comments, setComments] = useState([]); // State to hold comments data
@@ -101,4 +101,4 @@ const Blog5 = () => {
   );
 };
 
-export default Blog5;
+export default Blog;

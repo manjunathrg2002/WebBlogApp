@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card, Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 // User component to display details of a specific user's posts and comments
 const User = () => {
@@ -71,8 +71,8 @@ const User = () => {
               {posts.length > 0 ? (
                 <ul className="list-unstyled">
                   {posts.map((post) => (
-                    <li key={post.id} style={{ marginBottom: "10px" }}>
-                      {post.title}
+                    <li key={post.id}  style={{ marginBottom: "10px" }}>
+                     <Link to={`/blog/${post.id}`}   style={{ textDecoration: "none", color: "inherit" }} > {post.title} </Link> 
                       <hr />
                     </li>
                   ))}
